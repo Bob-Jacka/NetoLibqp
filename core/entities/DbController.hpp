@@ -44,18 +44,20 @@ namespace App {
 
     class DB_controller {
     private:
-        void create_table(libio::String_con_ref, const std::vector<libio::String>&) const;
+        void create_table(libio::String_con_ref, const std::vector<libio::String> &) const;
 
         [[nodiscard]] pqxx::result transaction(libio::String_con_ref) const;
+
+        static int id;
 
     public:
         DB_controller() = default;
 
         ~DB_controller() = default;
 
-        void init_db();
+        void init_tables();
 
-        void add_new_client(const DB_entities::Client &, libio::String_con_ref) const;
+        void add_new_client(const DB_entities::Client &) const;
 
         void update_client_phone(libio::String_con_ref, libio::String_con_ref) const; ///for existing client
 

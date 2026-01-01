@@ -248,6 +248,21 @@ void line_array_output(T array, const std::string &separator = " ", const std::s
     std::cout << array[i] << endsymbol;
 }
 
+export template<typename T>
+requires libio::type_constrains::is_stl_container<T>
+std::string line_array_output_return(T array, const std::string &separator = " ") {
+    const size_t array_size = array.size();
+    int i = 0;
+    std::string result;
+    for (; i < array_size - 1; ++i) {
+        result += array[i];
+        result += separator;
+    }
+    result += array[i];
+    result += "";
+    return result;
+}
+
 /**
  * New technology parametrized function for array output with old innovations
  * @tparam T generic type
