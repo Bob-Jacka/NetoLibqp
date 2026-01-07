@@ -96,8 +96,7 @@ App::DB_controller::find_client(libio::String_con_ref, libio::String_con_ref,
 
 pqxx::result App::DB_controller::transaction(libio::String_con_ref query) const {
     try {
-        pqxx::connection cx;
-        pqxx::work tx(cx);
+        pqxx::work tx(*cx);
         auto r = tx.exec(query);
         tx.commit();
         return r;

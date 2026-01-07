@@ -48,6 +48,8 @@ namespace App {
 
         [[nodiscard]] pqxx::result transaction(libio::String_con_ref) const;
 
+        std::unique_ptr<pqxx::connection> cx = std::make_unique<pqxx::connection>();
+
         static int id;
 
     public:
