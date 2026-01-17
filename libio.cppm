@@ -825,13 +825,15 @@ export namespace database {
         static libio::String UPDATE;
         static libio::String INSERT;
         static libio::String CREATE;
+        static libio::String DROP;
     };
 
     libio::String Sql_methods::SELECT = "SELECT";
-    libio::String Sql_methods::DELETE = "SELECT";
-    libio::String Sql_methods::UPDATE = "SELECT";
-    libio::String Sql_methods::INSERT = "SELECT";
-    libio::String Sql_methods::CREATE = "SELECT";
+    libio::String Sql_methods::DELETE = "DELETE";
+    libio::String Sql_methods::UPDATE = "UPDATE";
+    libio::String Sql_methods::INSERT = "INSERT";
+    libio::String Sql_methods::CREATE = "CREATE";
+    libio::String Sql_methods::DROP = "DROP";
 
     enum DATABASE_TYPE {
         //
